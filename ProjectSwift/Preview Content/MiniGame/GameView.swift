@@ -28,7 +28,11 @@ struct GameView: View {
     
     var body: some View {
         ZStack {
-            Color.cyan.ignoresSafeArea()
+            // Fondo con imagen
+            Image("game1") //
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
             
             ForEach(balloons) { balloon in
                 BalloonView(balloon: balloon)
@@ -40,11 +44,12 @@ struct GameView: View {
             VStack {
                 Text("Tiempo: \(timeRemaining)")
                     .font(.custom("Bebas Neue", size: 25))
-                    .foregroundColor(.yellow)
+                    .foregroundColor(.blue)
                     .padding(.top, 50)
                 
                 Spacer()
             }
+
             if showPopup {
                 PopUpView(popup: $showPopup, save: $save)
             }
@@ -72,7 +77,7 @@ struct GameView: View {
                         Alert(
                             title: Text("¿Quieres seguir jugando?"),
                             primaryButton: .default(Text("Sí")) {
-                                resetGame() // Ahora reinicia correctamente el juego
+                                resetGame()
                             },
                             secondaryButton: .destructive(Text("No")) {
                                 isPresented = false
@@ -84,6 +89,7 @@ struct GameView: View {
                 .cornerRadius(20)
             }
         }
+
         .onChange(of: save) {
             if save {
                 startGameTimer()
