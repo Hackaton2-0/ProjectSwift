@@ -102,7 +102,7 @@ struct PrincipalView: View {
             }
         }
         .onAppear {
-             //playBackgroundSound(sound: .Introduc, fadeOutPrevious: false)
+             playBackgroundSound(sound: .Introduc, fadeOutPrevious: false)
             floatCharacters = true
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

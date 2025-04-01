@@ -281,7 +281,6 @@ struct LevelOneView: View {
         }
     }
         
-    
     private func endGamePopup() -> some View {
            VStack(spacing: 16) {
                Text("¡Nivel completado!")
@@ -326,13 +325,13 @@ struct LevelOneView: View {
            .frame(maxWidth: 300)
        }
 
-       private func resetGame() {
-           timeRemaining = 60
-           itemStates = Array(repeating: true, count: 14)
-           itemsRemaining = 14
-           showEndPopup = false
-           startTimer()
-       }
+    private func resetGame() {
+        timeRemaining = 60
+        itemStates = Array(repeating: true, count: 14)
+        itemsRemaining = 14
+        showEndPopup = false
+        startTimer()
+    }
         
     private func itemDropped() {
         itemsRemaining -= 1

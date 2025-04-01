@@ -14,7 +14,7 @@ struct ProjectSwiftApp: App {
 
     var body: some Scene {
         WindowGroup {
-            PrincipalView()
+            SplashScreen()
                 //.environment(\.managedObjectContext, persistenceController.container.viewContext)
                 //.environmentObject(gameData)
         }

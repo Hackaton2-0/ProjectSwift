@@ -38,7 +38,7 @@ struct ContentView2: View {
             
             VStack {
                 ZStack{
-                    Text("Seccion 1: El bosque")
+                    Text("La selva de Balam")
                         .font(.title3)
                         .bold()
                         .frame(maxWidth: .infinity)

@@ -12,10 +12,10 @@ class Card: Identifiable, ObservableObject {
     var id = UUID()
     @Published var isFaceUP  = false
     @Published var isMatched = false
-    var text: String
+    var imageName: String
     
-    init (text: String){
-        self.text = text
+    init (imageName: String){
+        self.imageName = imageName
     }
     
     func tunrOver(){
@@ -23,8 +23,8 @@ class Card: Identifiable, ObservableObject {
     }
 }
 
-let cardValues: [String] = [
- "🦑", "🦐", "🦞", "🐡", "🦀", "🐠", "🐟", "🐬", "🐳", "🦭", "🐊", "🐙"
+let cardValues = [
+ "imagen1", "imagen2", "imagen3", "imagen4", "imagen5", "imagen6"
 ]
 
 func createCardList() -> [Card] {
@@ -32,11 +32,11 @@ func createCardList() -> [Card] {
     var cardList = [Card]()
     
     for cardValue in cardValues {
-        cardList.append(Card(text: cardValue))
-        cardList.append(Card(text: cardValue))
+        cardList.append(Card(imageName: cardValue))
+        cardList.append(Card(imageName: cardValue))
     }
     return cardList
 }
 
-let faceDownCard = Card(text: "?")
+let faceDownCard = Card(imageName: "imagen1")
 

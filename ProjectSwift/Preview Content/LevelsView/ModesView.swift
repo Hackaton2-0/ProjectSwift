@@ -34,30 +34,35 @@ struct ModesView: View {
                                 .scaledToFill()
                                 .frame(width: geometry.size.width * 3, height: geometry.size.height * 1.00)
 
-                            HStack(spacing: 450) {
+                            HStack(spacing: 440) {
                                 ForEach(cards) { card in
                                     VStack {
                                         Button(action: {
                                             selectedView = card.destination
                                         }) {
                                             ZStack {
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .fill(LinearGradient(
-                                                        gradient: Gradient(colors: card.colors),
-                                                        startPoint: .topLeading,
-                                                        endPoint: .bottomTrailing))
-                                                    .frame(width: 350, height: 250)
+                                                Circle()
+                                                    .fill(.ultraThinMaterial)
+                                                    .frame(width: 400, height: 300)
+                                                    .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 5)
+                                                    .overlay(
+                                                        Circle()
+                                                            .stroke(Color.white.opacity(0.3), lineWidth: 2)
+                                                    )
 
                                                 Image(card.imageName)
                                                     .resizable()
-                                                    .frame(width: 330, height: 230)
-                                                    .cornerRadius(10)
-                                                    .padding()
+                                                    .scaledToFit()
+                                                    .frame(width: 300, height: 300) 
                                             }
                                         }
+
                                         Text(card.title)
                                             .font(.largeTitle.bold())
                                             .foregroundStyle(.white)
+                                            .shadow(color: .black.opacity(0.7), radius: 4, x: 2, y: 2)
+                                            .padding(.top, 10)
+
                                     }
                                 }
                             }
@@ -85,7 +90,7 @@ struct ModesView: View {
                     )
 
                 case .levelG:
-                    ContentView(
+                    ContentView2(
                         score: 0,
                         isPressented: Binding(
                             get: { selectedView != .main },
@@ -112,9 +117,9 @@ struct ModesView: View {
 
     var cards: [Card] {
         [
-            Card(title: "El Bosque", imageName: "puzzle", colors: [.colorOne, .colorTwo], destination: .levelP),
-            Card(title: "La Selva", imageName: "geometry", colors: [.colorOne, .colorFive], destination: .levelG),
-            Card(title: "NUMBERS", imageName: "numbers", colors: [.colorTree, .colorTwo], destination: .levelP)
+            Card(title: "El bosque de Pachito", imageName: "tlacua", colors: [.colorOne, .colorTwo], destination: .levelP),
+            Card(title: "La selva de Balam", imageName: "jaguarsentao", colors: [.colorOne, .colorFive], destination: .levelG),
+            Card(title: "El mar de Chelonio", imageName: "tortugagolfina", colors: [.colorTree, .colorTwo], destination: .levelP)
         ]
     }
 
