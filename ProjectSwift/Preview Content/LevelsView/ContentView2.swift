@@ -92,12 +92,18 @@ struct ContentView2: View {
                         
                         HStack(spacing: 9) {
                             ForEach(0..<3) { starIndex in
-                                Image(systemName: starIndex < levelStars[index] ? "star.fill" : "star")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(starIndex < levelStars[index] ? .red : .black)
-                                    .offset(y: floating ? -5 : 5)
-                                    .animation(.easeInOut(duration: 1.5).repeatForever(), value: floating)
+                                ZStack {
+                                    Image(systemName: starIndex < levelStars[index] ? "star.fill" : "star")
+                                        .resizable()
+                                        .frame(width: 22, height: 22)
+                                        .foregroundColor(.black)
+                                    Image(systemName: starIndex < levelStars[index] ? "star.fill" : "star")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                        .foregroundColor(starIndex < levelStars[index] ? .yellow : .black)
+                                }
+                                .offset(y: floating ? -5 : 5)
+                                .animation(.easeInOut(duration: 1.5).repeatForever(), value: floating)
                             }
                         }
                     }
@@ -159,7 +165,7 @@ struct ContentView2: View {
             floating.toggle()
         }
         .fullScreenCover(isPresented: $showLevelOne) {
-            LevelOneView(
+            LevelOneTwoView(
                 onFinish: { estrellas in
                     levelStars[0] = estrellas
                 },

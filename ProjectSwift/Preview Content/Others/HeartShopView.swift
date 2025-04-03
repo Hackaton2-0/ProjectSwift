@@ -27,6 +27,7 @@ struct HeartShopView: View {
                 Text("Comprar Vidas")
                     .font(.title2.bold())
                     .padding()
+                    .foregroundColor(Color.black)
 
                 HStack(spacing: 25) {
                     Button {

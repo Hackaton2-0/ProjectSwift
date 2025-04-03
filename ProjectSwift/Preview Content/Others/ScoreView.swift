@@ -139,7 +139,6 @@ struct ConfigurationView: View {
                 .frame(width: 150, height: 50)
             
             HStack(spacing: 25) {
-                // Botón para el sonido de fondo
                 Image(systemName: isPressedVoice ? "speaker.slash.fill" : "speaker.wave.2.fill")
                     .foregroundColor(.black)
                     .font(.title)
@@ -159,7 +158,6 @@ struct ConfigurationView: View {
                         }
                     }
                 
-                // Botón para efectos de sonido (clicks, drops)
                 Image(systemName: isPressedSound ? "waveform.slash" : "waveform")
                     .foregroundColor(.black)
                     .font(.title)

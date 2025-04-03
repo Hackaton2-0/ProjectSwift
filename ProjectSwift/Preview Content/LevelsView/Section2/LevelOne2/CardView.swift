@@ -31,7 +31,7 @@ struct CardView: View {
                             .stroke(Color(red: 0.18, green: 0.32, blue: 0.46), lineWidth: 5)
                     )
             } else {
-                Image("?")
+                Image("signo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: CGFloat(width), height: CGFloat(width))

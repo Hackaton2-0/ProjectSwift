@@ -327,6 +327,7 @@ struct LevelOneView: View {
 
     private func resetGame() {
         timeRemaining = 60
+        estrellasObtenidas = 0
         itemStates = Array(repeating: true, count: 14)
         itemsRemaining = 14
         showEndPopup = false

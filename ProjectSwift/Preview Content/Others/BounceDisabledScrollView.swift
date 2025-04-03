@@ -18,7 +18,7 @@ struct BounceDisabledScrollView<Content: View>: UIViewRepresentable {
 
     func makeUIView(context: Context) -> UIScrollView {
         let scrollView = UIScrollView()
-        scrollView.bounces = false  // ⛔ Desactiva el rebote
+        scrollView.bounces = false 
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
 
@@ -39,6 +39,5 @@ struct BounceDisabledScrollView<Content: View>: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIScrollView, context: Context) {
-        // No update needed
     }
 }

@@ -145,16 +145,18 @@ struct LevelOneTwoView: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
                     Text(currentFact)
                         .font(.body)
                         .multilineTextAlignment(.center)
                         .padding()
+                        .foregroundColor(.black)
                     Button("OK") {
                         showFactPopup = false
                         showEndPopup = true
                     }
                     .padding()
-                    .background(Color.green)
+                    .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
                 }
@@ -308,6 +310,7 @@ struct LevelOneTwoView: View {
 
     private func resetGame() {
         timeCounter = 0
+        estrellasObtenidas = 0
         MatchedCards.removeAll()
         userChoices.removeAll()
         cards = createCardList().shuffled()

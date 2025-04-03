@@ -25,6 +25,7 @@ struct StarRatingPopup: View {
             Text("¡Nivel completado!")
                 .font(.title)
                 .fontWeight(.bold)
+                .foregroundColor(.black)
 
             HStack(spacing: 8) {
                 ForEach(0..<3) { index in
@@ -37,6 +38,7 @@ struct StarRatingPopup: View {
 
             Text("Tiempo: \(timeElapsed) segundos")
                 .font(.subheadline)
+                .foregroundColor(.black)
 
             Button("Cerrar") {
                 onClose()

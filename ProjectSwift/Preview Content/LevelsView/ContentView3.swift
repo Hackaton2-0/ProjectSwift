@@ -1,21 +1,19 @@
 //
-//  ContentLevek.swift
+//  ContentView3.swift
 //  ProjectSwift
 //
-//  Created by Freddy Morales on 08/03/25.
+//  Created by Freddy Morales on 02/04/25.
 //
 
 import SwiftUI
 import AVKit
 
-struct ContentView: View {
+struct ContentView3: View {
     var UISW: CGFloat = UIScreen.main.bounds.width
     var UISH: CGFloat = UIScreen.main.bounds.height
-    private let xOffsets: [CGFloat] = [-40, -80, -40,]
+    private let xOffsets: [CGFloat] = [10, 0, -40,]
     private let icons: [String] = [
-        "1.circle.fill",
-        "2.circle.fill",
-        "3.circle.fill"
+        "1.circle.fill"
     ]
     
     @State var score: Int = 0
@@ -33,20 +31,21 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            Image("fondonivels")
+            Image("fondooceano")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
             
             VStack {
                 ZStack{
-                    Text("El bosque de Pachito")
+                    Text("La selva de Balam")
                         .font(.title3)
                         .bold()
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color.gray.opacity(0.6))
-                        .offset(y: -220)
+                        .offset(y: -430)
+                        .foregroundColor(.black)
                     
                     Button(action: {
                         isPressented = false
@@ -71,18 +70,6 @@ struct ContentView: View {
                                     } else {
                                         showNoLivesPopup = true
                                     }
-                                case 1:
-                                    if gameData.lives > 0 {
-                                        showLevelTwo = true
-                                    } else {
-                                        showNoLivesPopup = true
-                                    }
-                                case 2:
-                                    if gameData.lives > 0 {
-                                        showLevelThree = true
-                                    } else {
-                                        showNoLivesPopup = true
-                                    }
                                 default:
                                     break
                                 }
@@ -95,8 +82,8 @@ struct ContentView: View {
                         }
                         .buttonStyle(
                             DepthButtonStyle(
-                                fooregroundColor: Color(red: 0.2, green: 0.5, blue: 0.2),
-                                backgroundColor: Color(red: 0.6, green: 0.4, blue: 0.2)
+                                fooregroundColor: Color(red: 0.2, green: 0.5, blue: 0.7),
+                                backgroundColor: Color.azulMa
                             )
                         )
                         .frame(width: 150, height: 140)
@@ -111,7 +98,6 @@ struct ContentView: View {
                                         .resizable()
                                         .frame(width: 22, height: 22)
                                         .foregroundColor(.black)
-                                            
                                     Image(systemName: starIndex < levelStars[index] ? "star.fill" : "star")
                                         .resizable()
                                         .frame(width: 20, height: 20)
@@ -123,11 +109,12 @@ struct ContentView: View {
                         }
                     }
                     
-                    .offset(x: xOffsets[index], y: -350)
+                    .offset(x: xOffsets[index], y: -540)
                     .padding(.bottom, 10)
                 }
                 
             }
+            
             ScoreView()
                 .environmentObject(gameData)
                 .offset(x: 260, y: -550)
@@ -179,7 +166,7 @@ struct ContentView: View {
             floating.toggle()
         }
         .fullScreenCover(isPresented: $showLevelOne) {
-            LevelOneView(
+            LevelOneThreeView(
                 onFinish: { estrellas in
                     levelStars[0] = estrellas
                 },
@@ -189,27 +176,6 @@ struct ContentView: View {
             .environmentObject(gameData)
         }
         
-        .fullScreenCover(isPresented: $showLevelTwo) {
-            LevelTwoView(
-                onFinish: { estrellas in
-                    levelStars[1] = estrellas
-                },
-                contentReturn: $contentReturn,
-                isPresented: $showLevelTwo
-            )
-            .environmentObject(gameData)
-        }
-
-        .fullScreenCover(isPresented: $showLevelThree) {
-            LevelThreeView(
-                onFinish: { estrellas in
-                    levelStars[2] = estrellas
-                },
-                contentReturn: $contentReturn,
-                isPresented: $showLevelThree
-            )
-            .environmentObject(gameData)
-        }
     }
     
     @ViewBuilder
@@ -238,8 +204,9 @@ struct ContentView: View {
         .animation(.easeInOut(duration: 1.5).repeatForever(), value: floating)
         
     }
+    
 }
 
 #Preview {
-    ContentView(score: 0, isPressented: .constant(true))
+    ContentView3(score: 0, isPressented: .constant(true))
 }

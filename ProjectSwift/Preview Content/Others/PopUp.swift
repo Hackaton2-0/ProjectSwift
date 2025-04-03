@@ -20,17 +20,19 @@ struct PopUpView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 30)
                     .foregroundColor(.white)
-                
+                    .shadow(radius: 10)
+                    .frame(width: 700, height: 500)
                 VStack{
-                    Image(systemName: "checkmark.seal.fill")
+                    Image(systemName: "flag.checkered.2.crossed")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 130)
+                        .frame(width: 240)
                         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                     
                     Text("¿Listo para comenzar?")
-                        .font(.largeTitle.bold())
+                        .font(.custom("Bebas Neue", size: 45))
                         .padding(.top, 50)
+                        .foregroundColor(Color.black)
                     
                     Text(instructions)
                         .multilineTextAlignment(.center)
@@ -50,7 +52,7 @@ struct PopUpView: View {
                             .padding()
                     }
                     .background(.blue)
-                    .cornerRadius(15)
+                    .cornerRadius(25)
                     .padding(.top, 30)
                 }
             }
