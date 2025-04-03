@@ -31,7 +31,7 @@ struct ContentView2: View {
 
     var body: some View {
         ZStack {
-            Image("fondonivels")
+            Image("fondoselva")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
